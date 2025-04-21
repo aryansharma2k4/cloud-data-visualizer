@@ -1,11 +1,10 @@
-import type { Config } from "tailwindcss"
-
-const config: Config = {
+module.exports = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -24,11 +23,11 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "hsl(215, 90%, 50%)",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "hsl(250, 80%, 60%)",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
@@ -52,13 +51,6 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: "100%",
-          },
-        },
-      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -66,12 +58,12 @@ const config: Config = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
+          from: { height: 0 },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          to: { height: 0 },
         },
       },
       animation: {
@@ -80,7 +72,6 @@ const config: Config = {
       },
     },
   },
+  plugins: [require("tailwindcss-animate")],
 }
-
-export default config
 
